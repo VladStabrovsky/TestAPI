@@ -100,17 +100,16 @@ class year_performance(APIView):
         if year is None:
             return Response({'message': 'Невказан рік'}, status=400)
         response = {'months':[]}
-        issuance_year_sum = sum(credit.body for credit in Credits.objects.filter(issuance_date__year=year))
+        credits_year_sum = sum(credit.body for credit in Credits.objects.filter(issuance_date__year=year))
         payments_year_sum = sum(payment.sum for payment in Payments.objects.filter(payment_date__year=year))
         for month in range(1, 13):
-            print(month)
             month_data = {}
             month_data['period'] = f'{month}.{year}'
             credits_queryset = Credits.objects.filter(issuance_date__month=month, issuance_date__year=year)
-            month_data['issuance_count'] = credits_queryset.count()
-            month_data['issuance_sum'] = sum(credit.body for credit in credits_queryset)
-            if issuance_year_sum > 0:
-                month_data['year_issuance_percent'] = round(month_data['issuance_sum'] / issuance_year_sum,3)
+            month_data['credits_count'] = credits_queryset.count()
+            month_data['credits_sum'] = sum(credit.body for credit in credits_queryset)
+            if credits_year_sum > 0:
+                month_data['year_credits_percent'] = round(month_data['credits_sum'] / credits_year_sum,3)
 
             payments_queryset = Payments.objects.filter(payment_date__month=month, payment_date__year=year)
             month_data['payments_count'] = payments_queryset.count()
@@ -124,9 +123,9 @@ class year_performance(APIView):
                 continue
             issuance_plan = plans.filter(category__name='видача')
             if issuance_plan.count() != 0:
-                month_data['issuance_plan_sum'] = issuance_plan.first().sum
-                if month_data['issuance_plan_sum'] > 0:
-                    month_data['issuance_percent'] = round(month_data['issuance_sum'] / month_data['issuance_plan_sum'],3)
+                month_data['credits_plan_sum'] = issuance_plan.first().sum
+                if month_data['credits_plan_sum'] > 0:
+                    month_data['credits_percent'] = round(month_data['credits_sum'] / month_data['credits_plan_sum'],3)
             payments_plan = plans.filter(category__name='збір')
             if payments_plan.count() != 0:
                 month_data['payments_plan_sum'] = payments_plan.first().sum
