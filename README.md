@@ -14,19 +14,19 @@ Python 3.11<br>
 user_credits - GET метод з URL-адресою "host/user_credits/<int:user_id>", де <int:user_id> - id клієнта.<br>
 Повертає інформацію про всі кредити вказаного клієнта у вигляді JSON.<br>
 JSON містить:<br>
-- credits - масив кредитів клієнта<br>
-	кожен елемент масиву credits містить:<br>
-	- issuance_date - дата видачі кредиту<br>
-	- return_date - дата повернення кредиту<br>
-	- body - сума виданого кредиту<br>
-	- percent - сума нарахованих відсотків<br>
-	- close - статус кредиту (true - кредит закрит, false - кредит відкритий)<br>
-	якщо кредит закрит (close=true):<br>
-		- payments_sum - сума платежів за кредитом<br>
-	якщо кредит відкритий (close=false):<br>
-		- overdue_days - кілкість просрочених днів<br>
-		- payments_sum_body - сума платежів за тілом кредиту<br>
-		- payments_sum_percent - сума платежів за відстоками кредиту<br>
+- credits - масив кредитів клієнта
+	кожен елемент масиву credits містить:
+	- issuance_date - дата видачі кредиту
+	- return_date - дата повернення кредиту
+	- body - сума виданого кредиту
+	- percent - сума нарахованих відсотків
+	- close - статус кредиту (true - кредит закрит, false - кредит відкритий)
+	якщо кредит закрит (close=true):
+		- payments_sum - сума платежів за кредитом
+	якщо кредит відкритий (close=false):
+		- overdue_days - кілкість просрочених днів
+		- payments_sum_body - сума платежів за тілом кредиту
+		- payments_sum_percent - сума платежів за відстоками кредиту
 
 
 plans_insert - POST метод з URL-адресою "host/plans_insert"<br>
