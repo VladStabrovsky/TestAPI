@@ -1,9 +1,9 @@
 # Опис тестового завдання
 
-Використані існтрументи:
-Python 3.11
-Фреймворк: Django та DRF
-СКБД: MySQL
+Використані існтрументи:  
+Python 3.11  
+Фреймворк: Django та DRF  
+СКБД: MySQL  
 
 
 Реалізовані методи та моделі знаходтся в TestAPI/API
@@ -79,4 +79,4 @@ months - масив місяців
 	payments_plan_sum - сума плана "збір"
 	payments_percent - відсоток суми платежів за місяц відносно плану місяця
 	Поля credits_plan_sum, credits_plan_sum, credits_percent, payments_plan_sum, payments_plan_sum, payments_percent можуть бути відсутні якщо в базі даних відсутні відповідні плани.
-	Поля year_credits_percent, year_payments_percent, credits_percent, payments_percent можуть бути відсутні якщо значеня відносно яких рахуеться відсоток дорівнює 0 (уникнення ділення на 0).
+	Поля year_credits_percent, year_payments_percent, credits_percent, payments_percent можуть бути відсутні якщо значеня відносно яких рахуеться відсоток дорівнює 0 (уникнення ділення на 0).	
