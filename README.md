@@ -11,7 +11,7 @@ Python 3.11<br>
 Дати в базі даних повинні зберігатися в форматі YYYY-MM-DD<br> 
 
 Реалізованні методи:<br> 
-user_credits - GET метод з URL-адресою "host/user_credits/<int:user_id>", де <int:user_id> - id клієнта.<br>
+user_credits - GET метод з URL-адресою "host/user_credits/\<int:user_id\>", де \<int:user_id\> - id клієнта.<br>
 Повертає інформацію про всі кредити вказаного клієнта у вигляді JSON.<br>
 JSON містить:
 - credits - масив кредитів клієнта
